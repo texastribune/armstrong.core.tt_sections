@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+
+    <title>Items and Backends &mdash; armstrong.core.arm_sections v0.x documentation</title>
+
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+
+    <link rel="stylesheet" href="../_static/rtd.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.x',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/searchtools.js"></script>
+    <link rel="top" title="armstrong.core.arm_sections v0.x documentation" href="../" />
+    <link rel="prev" title="armstrong.core.arm_sections" href="../" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex/" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../" title="armstrong.core.arm_sections"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../">armstrong.core.arm_sections v0.x documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="items-and-backends">
+<h1>Items and Backends<a class="headerlink" href="#items-and-backends" title="Permalink to this headline">¶</a></h1>
+<p>Sections provide a property called <tt class="docutils literal"><span class="pre">items</span></tt> which allow you to access all of
+the items associated with them.  <tt class="docutils literal"><span class="pre">items</span></tt> is powered by backends so it can
+look at the most efficient place to figure out how to get what is associated
+with it.</p>
+<p><tt class="docutils literal"><span class="pre">items</span></tt> is powered by a callable backend.  It&#8217;s up to the backend to figure
+out how what models it should return.</p>
+<div class="section" id="find-related-models">
+<h2><tt class="docutils literal"><span class="pre">find_related_models</span></tt><a class="headerlink" href="#find-related-models" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">find_related_models</span></tt> is the default backend for handling requests to a
+<tt class="docutils literal"><span class="pre">Section</span></tt>&#8216;s <tt class="docutils literal"><span class="pre">items</span></tt> property.  It queries the configured model looking for
+related data.  It uses the model specified in <tt class="docutils literal"><span class="pre">ARMSTRONG_SECTION_ITEM_MODEL</span></tt>
+to search for data.</p>
+<p>For this to work across multiple models this assumes you are using a
+non-abstract model as the a base <tt class="docutils literal"><span class="pre">Content</span></tt> model with specific types
+extending from that.  This is the style that Armstrong uses for it&#8217;s content.</p>
+<p><tt class="docutils literal"><span class="pre">find_related_models</span></tt> knows about the <tt class="docutils literal"><span class="pre">InheritanceManager</span></tt> in
+<a href="#id1"><span class="problematic" id="id2">`django-model-util`_</span></a> and attempts to utilize <tt class="docutils literal"><span class="pre">select_subclasses</span></tt>.  That
+limits the number of queries to the database to one.</p>
+</div>
+<div class="section" id="creating-custom-backends">
+<h2>Creating custom backends<a class="headerlink" href="#creating-custom-backends" title="Permalink to this headline">¶</a></h2>
+<p>You can change which backend is used by changing the
+<tt class="docutils literal"><span class="pre">ARMSTRONG_SECTION_ITEM_BACKEND</span></tt> value in your Django settings.  For example,
+the default setting is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ARMSTRONG_SECTION_ITEM_BACKEND</span> <span class="o">=</span> <span class="s">&#39;armstrong.core.arm_sections.backends.find_related_models&#39;</span>
+</pre></div>
+</div>
+<p>You should include the full path to the callable.  The custom backend is
+provided one argument, the <tt class="docutils literal"><span class="pre">section</span></tt> that was used to call it.  It should
+return an iterable object.  You <em>can</em> return a <tt class="docutils literal"><span class="pre">QuerySet</span></tt>, but that is not
+currently a requirement.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Items and Backends</a><ul>
+<li><a class="reference internal" href="#find-related-models"><tt class="docutils literal"><span class="pre">find_related_models</span></tt></a></li>
+<li><a class="reference internal" href="#creating-custom-backends">Creating custom backends</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../"
+                        title="previous chapter">armstrong.core.arm_sections</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/backends.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search/" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex/" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../" title="armstrong.core.arm_sections"
+             >previous</a> |</li>
+        <li><a href="../">armstrong.core.arm_sections v0.x documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+<div class="footer">
+    &copy; Copyright 2011, Bay Citizen &amp; Texas Tribune.
+  Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+  <br />Theme based on <a href="http://readthedocs.org/">Read The Docs</a>
+
+</div>
+
+
+
+
+
+  </body>
+</html>
