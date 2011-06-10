@@ -515,12 +515,12 @@ div.sidebar p.sidebar-title {
 
 /* Warnings only */
 div.warning {
-    border: 1px solid #900000;
-    background-color: #ffe9e9;
+    border: 1px solid #cc3245;
+    background-color: #ffe3e6;
 }
 div.warning p.admonition-title {
-    background-color: #b04040;
-    border-bottom: 1px solid #900000;
+    background-color: #cc6370;
+    border-bottom: 1px solid #cc3245;
 }
 
 
