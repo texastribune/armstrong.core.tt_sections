@@ -74,7 +74,7 @@ h1 {
     padding: 0.7em 0 0.3em 0;
     font-size: 1.5em;
     line-height: 1.15;
-    color: #111111;
+    color: #1f3744;
     clear: both;
 }
 
@@ -82,13 +82,13 @@ h2 {
     margin: 2em 0 0.2em 0;
     font-size: 1.35em;
     padding: 0;
-    color: rgba(160, 109, 52, 1.0);
+    color: #335C72;
 }
 
 h3 {
     margin: 1em 0 -0.3em 0;
     font-size: 1.2em;
-    color: #6c818f;
+    color: #638fa6;
 }
 
 div.body h1 a, div.body h2 a, div.body h3 a, div.body h4 a, div.body h5 a, div.body h6 a {
@@ -118,9 +118,9 @@ h5 a.anchor:hover, h6 a.anchor:hover {
 
 /* Normal links get a pseudo-underline */
 a {
-    color: #444444;
+    color: #335C72;
     text-decoration: none;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #99AEB9;
 }
 
 /* Links in sidebar, TOC, index trees and tables have no underline */
