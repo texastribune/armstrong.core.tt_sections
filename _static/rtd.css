@@ -31,7 +31,7 @@ body {
     font: 100%/1.5 "ff-meta-web-pro-1","ff-meta-web-pro-2",Arial,"Helvetica Neue",sans-serif; 
     text-align: center;
     color: black;
-    background-color: rgba(160, 109, 52, 1.0);
+    background-color: rgba(135, 57, 34, 1.0);
     padding: 0;
     margin: 0;
 }
@@ -57,7 +57,7 @@ div.body {
 
 div.related {
     font-size: 1em;
-    background-color: rgba(160, 109, 52, 1.0);
+    background-color: rgba(135, 57, 34, 1.0);
 }
 
 div.documentwrapper {
@@ -145,7 +145,7 @@ div.toctree-wrapper a:hover,
 
 /* Footer links */
 div.footer a {
-    color: #634320;
+    color: rgba(171, 138, 93, 1.0);
     text-decoration: none;
     border: none;
 }
@@ -181,7 +181,7 @@ div.related ul li {
     padding: 0.65em 0;
     float: left;
     display: block;
-    color: #ffffff; /* For the >> separators */
+    color: rgba(212, 195, 172, 0.5); /* For the >> separators */
     font-size: 0.8em;
 }
 
@@ -198,7 +198,8 @@ div.related ul li a {
     font-weight: bold;
     margin: 6px 0 6px 4px;
     line-height: 1.75em;
-    color: #ffffff;
+    color: rgba(212, 195, 172, 1.0);
+    text-shadow: 0 1px rgba(0, 0, 0, 0.5);
     padding: 0.4em 0.8em;
     border: none;
     border-radius: 3px;
@@ -398,7 +399,7 @@ cite, code, tt {
 }
 
 tt {
-    background-color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.075);
     color: #444444;
 }
 
@@ -420,7 +421,7 @@ pre, #_fontwidthtest {
     line-height: 120%;
     padding: 0.5em;
     border: 1px solid #cccccc;
-    background-color: #eeeeee;
+    background-color: rgba(0, 0, 0, 0.075);
     border-radius: 6px;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
@@ -503,24 +504,24 @@ div.sidebar ul, div.sidebar ol {
 
 /* Admonitions and sidebars only */
 div.admonition, div.sidebar {
-    border: 1px solid #609060;
-    background-color: #e9ffe9;
+    border: 1px solid rgba(51, 77, 0, 1.0);
+    background-color: rgba(102, 153, 0, 0.1);
 }
 div.admonition p.admonition-title,
 div.sidebar p.sidebar-title {
-    background-color: #70a070;
-    border-bottom: 1px solid #609060;
+    background-color: rgba(102, 153, 0, 1.0);
+    border-bottom: 1px solid rgba(51, 77, 0, 1.0);
 }
 
 
 /* Warnings only */
 div.warning {
-    border: 1px solid #cc3245;
-    background-color: #ffe3e6;
+    border: 1px solid rgba(51, 13, 0, 1.0);
+    background-color: rgba(204, 51, 0, 0.1);
 }
 div.warning p.admonition-title {
-    background-color: #cc6370;
-    border-bottom: 1px solid #cc3245;
+    background-color: rgba(204, 51, 0, 1.0);
+    border-bottom: 1px solid rgba(51, 13, 0, 1.0);
 }
 
 
@@ -569,8 +570,8 @@ span.highlight {
 }
 
 div.footer {
-    background-color: rgba(160, 109, 52, 1.0);
-    color: #eeeeee;
+    background-color: rgba(135, 57, 34, 1.0);
+    color: rgba(212, 195, 172, 1.0);
     padding: 0 2em 2em 2em;
     clear: both;
     font-size: 0.8em;
