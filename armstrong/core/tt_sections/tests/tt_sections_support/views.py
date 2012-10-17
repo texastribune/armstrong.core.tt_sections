@@ -1,4 +1,4 @@
-from armstrong.core.arm_sections.views import SimpleSectionView
+from armstrong.core.tt_sections.views import SimpleSectionView
 
 from .models import CustomSection
 

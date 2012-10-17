@@ -1,4 +1,4 @@
-armstrong.core.arm_sections
+armstrong.core.tt_sections
 ===========================
 Provides the basic concept of sections within an Armstrong site.
 
@@ -18,7 +18,7 @@ in a given section.  For example::
 
     # your models.py
     from django.db import models
-    from armstrong.core.arm_sections.models import Section
+    from armstrong.core.tt_sections.models import Section
 
 
     class MyArticle(models.Model):
@@ -105,9 +105,9 @@ We recommend installing this through the Cheese Shop.
 
 ::
 
-    pip install armstrong.core.arm_sections
+    pip install armstrong.core.tt_sections
 
-This gets you the latest released version of ``armstrong.core.arm_sections``.
+This gets you the latest released version of ``armstrong.core.tt_sections``.
 
 Configuration
 """""""""""""
@@ -117,7 +117,7 @@ component.
 ``ARMSTRONG_SECTION_ITEM_BACKEND``
     This is used to configure which backend is used to find the items
     associated with a given ``Section``.  (default:
-    ``armstrong.core.arm_sections.backend.ItemFilter``)
+    ``armstrong.core.tt_sections.backend.ItemFilter``)
 
 ``ARMSTRONG_SECTION_ITEM_MODEL``
     This is used by the default ``find_related_models`` backend to determine

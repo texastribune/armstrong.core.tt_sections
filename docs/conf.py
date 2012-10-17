@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# armstrong.core.arm_sections documentation build configuration file, created by
+# armstrong.core.tt_sections documentation build configuration file, created by
 # sphinx-quickstart on Thu May 12 19:08:41 2011.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'armstrong.core.arm_sections'
+project = u'armstrong.core.tt_sections'
 copyright = u'2011, Bay Citizen & Texas Tribune'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -164,7 +164,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'armstrongcorearm_sectionsdoc'
+htmlhelp_basename = 'armstrongcorett_sectionsdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -178,7 +178,7 @@ htmlhelp_basename = 'armstrongcorearm_sectionsdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'armstrongcorearm_sections.tex', u'armstrong.core.arm\\_sections Documentation',
+  ('index', 'armstrongcorett_sections.tex', u'armstrong.core.arm\\_sections Documentation',
    u'Bay Citizen \\& Texas Tribune', 'manual'),
 ]
 
@@ -211,6 +211,6 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'armstrongcorearm_sections', u'armstrong.core.arm_sections Documentation',
+    ('index', 'armstrongcorett_sections', u'armstrong.core.tt_sections Documentation',
      [u'Bay Citizen & Texas Tribune'], 1)
 ]

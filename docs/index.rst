@@ -1,4 +1,4 @@
-.. armstrong.core.arm_sections documentation master file, created by
+.. armstrong.core.tt_sections documentation master file, created by
    sphinx-quickstart on Thu May 12 19:08:41 2011.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.

@@ -1,4 +1,4 @@
-from arm_sections_support.models import SimpleCommon
+from tt_sections_support.models import SimpleCommon
 
 from ._utils import *
 
@@ -27,33 +27,33 @@ class get_configured_item_modelTestCase(ArmSectionsTestCase):
 
 class get_item_model_classTestCase(ArmSectionsTestCase):
     def test_returns_specified_class(self):
-        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.arm_sections.tests.arm_sections_support.models.SimpleCommon'):
+        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.tt_sections.tests.tt_sections_support.models.SimpleCommon'):
             self.assertEqual(SimpleCommon, utils.get_item_model_class())
 
 
 class get_section_relationsTestCase(ArmSectionsTestCase):
     def test_returns_relation_for_foreign_key_only(self):
-        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.arm_sections.tests.arm_sections_support.models.SimpleCommon'):
+        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.tt_sections.tests.tt_sections_support.models.SimpleCommon'):
             self.assertEqual(['primary_section'], rel_field_names(utils.get_section_relations(Section)))
 
     def test_returns_relations_for_foreign_key_and_many_to_many(self):
-        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.arm_sections.tests.arm_sections_support.models.ComplexCommon'):
+        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.tt_sections.tests.tt_sections_support.models.ComplexCommon'):
             self.assertEqual(['primary_section', 'related_sections'], rel_field_names(utils.get_section_relations(Section)))
 
     def test_returns_relations_for_subclass_with_foreign_key_and_many_to_many(self):
-        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.arm_sections.tests.arm_sections_support.models.MultipleManyToManyModel'):
+        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.tt_sections.tests.tt_sections_support.models.MultipleManyToManyModel'):
             self.assertEqual(['primary_section', 'related_sections', 'more_sections'], rel_field_names(utils.get_section_relations(Section)))
 
 
 class get_section_many_to_many_relationsTestCase(ArmSectionsTestCase):
     def test_returns_no_relations_for_foreign_key_only(self):
-        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.arm_sections.tests.arm_sections_support.models.SimpleCommon'):
+        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.tt_sections.tests.tt_sections_support.models.SimpleCommon'):
             self.assertEqual([], rel_field_names(utils.get_section_many_to_many_relations(Section)))
 
     def test_returns_relation_for_foreign_key_and_many_to_many(self):
-        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.arm_sections.tests.arm_sections_support.models.ComplexCommon'):
+        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.tt_sections.tests.tt_sections_support.models.ComplexCommon'):
             self.assertEqual(['related_sections'], rel_field_names(utils.get_section_many_to_many_relations(Section)))
 
     def test_returns_relations_for_subclass_with_foreign_key_and_many_to_many(self):
-        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.arm_sections.tests.arm_sections_support.models.MultipleManyToManyModel'):
+        with override_settings(ARMSTRONG_SECTION_ITEM_MODEL='armstrong.core.tt_sections.tests.tt_sections_support.models.MultipleManyToManyModel'):
             self.assertEqual(['related_sections', 'more_sections'], rel_field_names(utils.get_section_many_to_many_relations(Section)))

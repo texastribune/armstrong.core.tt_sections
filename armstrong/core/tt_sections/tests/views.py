@@ -2,7 +2,7 @@ from django.core import urlresolvers
 
 from ._utils import ArmSectionsTestCase
 from ..models import Section
-from .arm_sections_support.models import CustomSection
+from .tt_sections_support.models import CustomSection
 
 
 class SectionsViewTestCase(ArmSectionsTestCase):

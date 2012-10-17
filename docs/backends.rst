@@ -37,7 +37,7 @@ You can change which backend is used by changing the
 ``ARMSTRONG_SECTION_ITEM_BACKEND`` value in your Django settings.  For example,
 the default setting is::
 
-    ARMSTRONG_SECTION_ITEM_BACKEND = 'armstrong.core.arm_sections.backends.find_related_models'
+    ARMSTRONG_SECTION_ITEM_BACKEND = 'armstrong.core.tt_sections.backends.find_related_models'
 
 You should include the full path to the callable.  The custom backend is
 provided one argument, the ``section`` that was used to call it.  It should

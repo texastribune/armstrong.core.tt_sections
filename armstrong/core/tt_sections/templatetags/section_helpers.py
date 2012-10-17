@@ -18,7 +18,7 @@ class SectionMenuNode(djtemplate.Node):
 
     def render(self, context):
         if self.template is None:
-            template = 'arm_sections/sections_menu.html'
+            template = 'tt_sections/sections_menu.html'
         else:
             template = self.template.resolve(context)
 

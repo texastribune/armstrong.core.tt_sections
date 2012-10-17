@@ -1,5 +1,5 @@
 {
-    "name": "armstrong.core.arm_sections",
+    "name": "armstrong.core.tt_sections",
     "version": "1.6.0alpha.0",
     "description": "Provides the basic section objects",
     "install_requires": [

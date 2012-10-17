@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.conf.urls.defaults import *
 
-from armstrong.core.arm_sections.views import SimpleSectionView, SectionFeed
+from armstrong.core.tt_sections.views import SimpleSectionView, SectionFeed
 
 from .models import CustomSection
 from .views import CustomSectionView

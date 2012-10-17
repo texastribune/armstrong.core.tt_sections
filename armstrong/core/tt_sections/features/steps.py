@@ -4,7 +4,7 @@ from django.conf import settings
 from django.db import connections
 from django.db import DEFAULT_DB_ALIAS
 from lettuce import *
-from armstrong.core.arm_sections.models import Section
+from armstrong.core.tt_sections.models import Section
 
 
 @before.each_scenario
@@ -128,13 +128,13 @@ def load_all_sessions(step):
 @step(u'Given I have a "(.*)" model registered with the backends')
 def setup_common_model(step, model):
     settings.ARMSTRONG_SECTION_ITEM_MODEL = \
-        "armstrong.core.arm_sections.tests.arm_sections_support.models.%s" \
+        "armstrong.core.tt_sections.tests.tt_sections_support.models.%s" \
         % model
 
 
 @step(u'I have the following models from support app:')
 def and_i_have_the_following_models_from_support_app(step):
-    from armstrong.core.arm_sections.tests.arm_sections_support import models
+    from armstrong.core.tt_sections.tests.tt_sections_support import models
     for row in step.hashes:
         section = Section.objects.get(slug=row["section"])
         cls = getattr(models, row['model'])
@@ -148,7 +148,7 @@ def and_i_have_the_following_models_from_support_app(step):
 
 @step(u'I have the following many-to-many models from support app:')
 def and_i_have_the_following_many_to_many_models_from_support_app(step):
-    from armstrong.core.arm_sections.tests.arm_sections_support import models
+    from armstrong.core.tt_sections.tests.tt_sections_support import models
     for row in step.hashes:
         slugs = row["sections"].split(',')
         sections = Section.objects.filter(slug__in=slugs)
@@ -212,7 +212,7 @@ def then_the_fake_backend_should_have_been_called(step):
 
 @step(u'I query "(.*)" with the full slug "(.*)"')
 def query_by_full_slug(step, model_name, slug):
-    from armstrong.core.arm_sections.tests.arm_sections_support import models
+    from armstrong.core.tt_sections.tests.tt_sections_support import models
     world.model_class = getattr(models, model_name)
     try:
         world.items = [world.model_class.with_section.get_by_slug(slug)]
@@ -230,7 +230,7 @@ def then_i_should_have_caught_a_group1_exception(step, exception_name):
 
 @step(u'And I have the following NonStandardField models:')
 def and_i_have_the_following_nonstandardfield_models(step):
-    from armstrong.core.arm_sections.tests.arm_sections_support import models
+    from armstrong.core.tt_sections.tests.tt_sections_support import models
     for row in step.hashes:
         section = Section.objects.get(slug=row["section"])
         models.NonStandardField.objects.create(title=row["title"],

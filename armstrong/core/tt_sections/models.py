@@ -7,7 +7,7 @@ from armstrong.utils.backends import GenericBackend
 
 from .utils import get_section_many_to_many_relations
 
-__BACKEND_MODULE = "armstrong.core.arm_sections.backends.%s"
+__BACKEND_MODULE = "armstrong.core.tt_sections.backends.%s"
 SECTION_ITEM_BACKEND = (GenericBackend('ARMSTRONG_SECTION_ITEM_BACKEND',
         defaults=__BACKEND_MODULE % "ItemFilter")
     .get_backend())

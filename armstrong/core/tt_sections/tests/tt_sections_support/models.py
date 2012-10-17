@@ -1,6 +1,6 @@
 from armstrong.core.arm_content.mixins.publication import PublishedManager, PUB_STATUS_CHOICES
-from armstrong.core.arm_sections.managers import SectionSlugManager
-from armstrong.core.arm_sections.models import Section
+from armstrong.core.tt_sections.managers import SectionSlugManager
+from armstrong.core.tt_sections.models import Section
 from django.db import models
 from model_utils.managers import InheritanceManager
 
