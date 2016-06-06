@@ -27,15 +27,15 @@ class SectionManager(models.Manager):
         return super(SectionManager, self).get(**defaults)
 
     def add_item(self, item, field_name=None, **kwargs):
-        section = self.get_query_set().get(**kwargs)
+        section = self.get_queryset().get(**kwargs)
         section.add_item(item, field_name=field_name)
 
     def remove_item(self, item, field_name=None, **kwargs):
-        section = self.get_query_set().get(**kwargs)
+        section = self.get_queryset().get(**kwargs)
         section.remove_item(item, field_name=field_name)
 
     def toggle_item(self, item, test_func, field_name=None, **kwargs):
-        section = self.get_query_set().get(**kwargs)
+        section = self.get_queryset().get(**kwargs)
         return section.toggle_item(item, test_func, field_name=field_name)
 
 
