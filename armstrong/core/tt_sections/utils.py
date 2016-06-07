@@ -17,15 +17,17 @@ def filter_item_rels(rels):
     model_rels = []
     ItemModel = get_item_model_class()
     for related in rels:
-        if issubclass(ItemModel, related.model):
+        if issubclass(ItemModel, related.related_model):
             model_rels.append(related)
     return model_rels
 
 def get_section_relations(Section):
     """Find every relationship between section and the item model."""
-    all_rels = Section._meta.get_all_related_objects() + \
-               Section._meta.get_all_related_many_to_many_objects()
+    all_rels = [f for f in Section._meta.get_fields(include_hidden=True) if
+                f.is_relation and f.auto_created]
     return filter_item_rels(all_rels)
 
 def get_section_many_to_many_relations(Section):
-    return filter_item_rels(Section._meta.get_all_related_many_to_many_objects())
+    m2m_rels = [f for f in Section._meta.get_fields(include_hidden=True) if
+                f.many_to_many and f.auto_created]
+    return filter_item_rels(m2m_rels)

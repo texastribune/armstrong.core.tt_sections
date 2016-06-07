@@ -138,8 +138,17 @@ def and_i_have_the_following_models_from_support_app(step):
     for row in step.hashes:
         section = Section.objects.get(slug=row["section"])
         cls = getattr(models, row['model'])
-        rel = [a[0] for a in cls._meta.get_fields_with_model() \
-                if a[0].__class__.__name__ == 'ForeignKey'][0]
+
+        fields_with_model = [
+            (f, f.model if f.model != cls else None)
+            for f in cls._meta.get_fields()
+            if not f.is_relation
+                or f.one_to_one
+                or (f.many_to_one and f.related_model)
+        ]
+
+        rel = [a[0] for a in fields_with_model \
+               if a[0].__class__.__name__ == 'ForeignKey'][0]
         kwargs = {"title": row["title"], rel.name: section, }
         if "slug" in row:
             kwargs["slug"] = row["slug"]
