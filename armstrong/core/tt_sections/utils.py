@@ -1,6 +1,6 @@
-from django.conf import settings
-from django.utils.module_loading import import_module
+from importlib import import_module
 
+from django.conf import settings
 
 def get_module_and_model_names():
     s = (getattr(settings, "ARMSTRONG_SECTION_ITEM_MODEL", False) or
